@@ -16,7 +16,7 @@ for c in map(Comment, account.history(only_ops=["comment"])):
     c_list[c.permlink] = 1
     if not c.is_comment():
          title = ""
-         title = title.join(c.title.splitlines())
+         title = title.join(c.title.splitlines()) # Settled the titles with newline problem
          print(str(count) + title)
          count +=1
          f.write(str(count) + ". [" + title + "]" +
