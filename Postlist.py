@@ -1,6 +1,7 @@
 from beem.account import Account
 from beem.comment import Comment
 from beem.exceptions import ContentDoesNotExistsException
+import sys
 username = "farizal"
 account = Account(username)
 c_list = {}
@@ -17,7 +18,8 @@ for c in map(Comment, account.history(only_ops=["comment"])):
     if not c.is_comment():
          title = ""
          title = title.join(c.title.splitlines()) # Settled the titles with newline problem
-         print(str(count) + title)
+         print(145*" ", end="\r")
+         print(str(count) +" "+ title[0:140], end="\r")
          count +=1
          f.write(str(count) + ". [" + title + "]" +
          "(" +"https://hive.blog/"+
